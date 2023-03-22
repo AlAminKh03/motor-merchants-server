@@ -10,6 +10,7 @@ const UserSchema = new mongoose.Schema({
     required: true,
   },
   isVerified: Boolean,
+  role: String,
 });
 
 module.exports = mongoose.model("Users", UserSchema);

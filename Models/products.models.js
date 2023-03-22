@@ -13,12 +13,16 @@ const ProductSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  MinOrder: {
+  minOrder: {
     type: Number,
     required: true,
   },
   available: {
     type: Number,
+    required: true,
+  },
+  ImgUrl: {
+    type: String,
     required: true,
   },
 });
