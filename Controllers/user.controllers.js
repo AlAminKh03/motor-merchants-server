@@ -94,7 +94,7 @@ exports.updateStatusOfUser = async (req, res, next) => {
   console.log(updatedDoc);
   console.log(email);
   try {
-    const updatedUser = await UserModel.findOneAndUpdate(email, updatedDoc);
+    const updatedUser = await UserModel.findOneAndUpdate({ email }, updatedDoc);
     console.log(updatedUser);
     res.status(201).send(updatedUser);
   } catch (err) {
