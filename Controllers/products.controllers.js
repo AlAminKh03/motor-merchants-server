@@ -28,7 +28,6 @@ exports.getSingleProduct = async (req, res, next) => {
   const filter = { _id: id };
   try {
     const product = await ProductsModel.findOne(filter);
-    console.log(product);
     res.status(201).send(product);
   } catch (err) {
     console.log(err);

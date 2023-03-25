@@ -11,6 +11,10 @@ const UserSchema = new mongoose.Schema({
   },
   isVerified: Boolean,
   role: String,
+  location: String,
+  fbLink: String,
+  linkdinLink: String,
+  githubLink: String,
 });
 
 module.exports = mongoose.model("Users", UserSchema);

@@ -19,13 +19,13 @@ exports.postUser = async (req, res, next) => {
   }
 };
 
-exports.updateStatusOfEmail = async (req, res, next) => {
+exports.getSingleUser = async (req, res, next) => {
   const Email = req.params.email;
   const filter = { email: Email };
-  const updatedDoc = { isVerified: true };
   try {
-    const verifiedUser = await userModels.findOneAndUpdate(filter, updatedDoc);
-    res.status(201).send(verifiedUser);
+    const user = await userModels.findOne(filter);
+    console.log(user);
+    res.status(201).send(user);
   } catch (error) {
     console.log(error);
     res.status(404).send({ error });
@@ -85,5 +85,19 @@ exports.updateRole = async (req, res, next) => {
   } catch (err) {
     console.log(err);
     req.status(404).send(err);
+  }
+};
+
+exports.updateStatusOfUser = async (req, res, next) => {
+  const email = req.params.email;
+  const updatedDoc = req.body;
+  console.log(updatedDoc);
+  console.log(email);
+  try {
+    const updatedUser = await UserModel.findOneAndUpdate(email, updatedDoc);
+    console.log(updatedUser);
+    res.status(201).send(updatedUser);
+  } catch (err) {
+    res.status(404).send(err);
   }
 };
